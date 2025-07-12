@@ -1,0 +1,21 @@
+workflows:
+  build-android:
+    name: Build Android APK
+    environment:
+      flutter: stable
+      xcode: latest
+    scripts:
+      - name: Install dependencies
+        script: |
+          cd app
+          flutter pub get
+      - name: Build APK
+        script: |
+          cd app
+          flutter build apk --release
+    artifacts:
+      - app/build/**/outputs/**/*.apk
+    publishing:
+      email:
+        recipients:
+          - sanitaryinspectorupdate@gmail.com
