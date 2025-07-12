@@ -1,0 +1,24 @@
+workflows:
+  android-production:
+    name: Sanitary Inspector Production Build
+    environment:
+      groups:
+        - keystore_credentials
+      flutter: "3.13.0"
+    scripts:
+      - name: Install dependencies
+        script: |
+          flutter pub get
+      - name: Build Release APK
+        script: |
+          flutter build apk --release --split-per-abi
+      - name: Build App Bundle
+        script: |
+          flutter build appbundle --release
+    artifacts:
+      - build/**/outputs/**/*.apk
+      - build/**/outputs/**/*.aab
+    publishing:
+      email:
+        recipients:
+          - sanitaryinspectorupdate@gmail.com
