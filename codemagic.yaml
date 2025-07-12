@@ -3,7 +3,6 @@ workflows:
     name: Build Android APK
     environment:
       flutter: stable
-      xcode: latest
     scripts:
       - name: Install dependencies
         script: |
