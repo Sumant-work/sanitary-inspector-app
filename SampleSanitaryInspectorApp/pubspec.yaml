@@ -1,0 +1,14 @@
+name: sanitary_inspector_app
+description: A sample app for Sanitary Inspector study materials.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pdfx: ^2.9.2
+
+flutter:
+  uses-material-design: true

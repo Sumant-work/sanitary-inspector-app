@@ -1,0 +1,18 @@
+
+name: sanitary_inspector_app
+description: A simple Flutter app to view PDFs, notes, and quizzes.
+publish_to: 'none'
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pdfx: ^2.9.2
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/pdfs/
+    - assets/notes/
