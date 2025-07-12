@@ -1,6 +1,7 @@
+
 name: sanitary_inspector_app
-description: A sample app for Sanitary Inspector study materials.
-version: 1.0.0+1
+description: A simple Flutter app to view PDFs, notes, and quizzes.
+publish_to: 'none'
 
 environment:
   sdk: ">=2.17.0 <3.0.0"
@@ -12,3 +13,6 @@ dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/pdfs/
+    - assets/notes/
