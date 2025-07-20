@@ -1,39 +1,46 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.sanitary_inspector_app">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 🔐 Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
 
+    <!-- ⚠️ Scoped Storage is preferred for Android 10+ -->
+
     <application
-        android:name="androidx.multidex.MultiDexApplication"
+        android:name="io.flutter.app.FlutterApplication"
         android:label="Sanitary Inspector App"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
-        tools:targetApi="33">
+        android:requestLegacyExternalStorage="true">
 
+        <!-- 🚀 Flutter Main Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustResize"
+            android:configChanges="orientation|screenSize|keyboardHidden|keyboard|smallestScreenSize|layoutDirection|locale|fontScale|screenLayout|density|uiMode">
 
+            <!-- 🧩 Optional theme metadata -->
             <meta-data
                 android:name="io.flutter.embedding.android.NormalTheme"
-                android:resource="@style/NormalTheme"/>
+                android:resource="@style/NormalTheme" />
 
+            <!-- 🟢 Launch intent -->
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
     </application>
+
 </manifest>
