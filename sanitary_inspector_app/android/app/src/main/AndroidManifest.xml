@@ -1,24 +1,26 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.sanitary_inspector_app">
+    package="com.sanitaryinspector.prep">
 
-    <!-- 🔐 Permissions -->
+    <!-- ✅ Required for Internet access -->
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- ✅ Runtime permissions for file access (handled via permission_handler) -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
 
-    <!-- ⚠️ Scoped Storage is preferred for Android 10+ -->
-
     <application
-        android:name="io.flutter.app.FlutterApplication"
-        android:label="Sanitary Inspector App"
+        android:name="androidx.multidex.MultiDexApplication"
+        android:label="Sanitary Inspector Prep"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:usesCleartextTraffic="true"
-        android:requestLegacyExternalStorage="true">
+        android:requestLegacyExternalStorage="true"
+        android:usesCleartextTraffic="true">
 
-        <!-- 🚀 Flutter Main Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -26,21 +28,17 @@
             android:theme="@style/LaunchTheme"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize"
-            android:configChanges="orientation|screenSize|keyboardHidden|keyboard|smallestScreenSize|layoutDirection|locale|fontScale|screenLayout|density|uiMode">
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode">
 
-            <!-- 🧩 Optional theme metadata -->
             <meta-data
                 android:name="io.flutter.embedding.android.NormalTheme"
                 android:resource="@style/NormalTheme" />
 
-            <!-- 🟢 Launch intent -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
     </application>
 
 </manifest>
