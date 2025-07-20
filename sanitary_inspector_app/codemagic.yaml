@@ -21,4 +21,4 @@ workflows:
     publishing:
       email:
         recipients:
-          - sanitaryinspectorupdate@gmail.com
+          - sumantraj.work@gmail.com
