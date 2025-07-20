@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '1.7.10'
+    ext.kotlin_version = '1.7.10'  // or '1.8.10' if updated in app-level
     repositories {
         google()
         mavenCentral()
