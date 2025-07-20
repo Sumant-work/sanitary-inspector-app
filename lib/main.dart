@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'screens/pyq_screen.dart';
 import 'screens/notes_screen.dart';
 import 'screens/quiz_screen.dart';
-import 'screens/live_test_screen.dart';  // new file
+import 'screens/live_test_screen.dart';
+import 'utils/permission_helper.dart'; // ✅ Import helper
 
-void main() => runApp(SanitaryInspectorApp());
+void main() {
+  runApp(SanitaryInspectorApp());
+}
 
 class SanitaryInspectorApp extends StatelessWidget {
   @override
@@ -24,13 +27,33 @@ class SanitaryInspectorApp extends StatelessWidget {
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   final sections = [
     {'title': '📄 PYQ PDFs', 'route': '/pyq'},
     {'title': '📝 Notes', 'route': '/notes'},
     {'title': '❓ Quiz', 'route': '/quiz'},
     {'title': '🔒 Live Test (Coming Soon)', 'route': '/live'},
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    _handlePermissions(); // ✅ Ask for storage permission on start
+  }
+
+  void _handlePermissions() async {
+    bool granted = await PermissionHelper.requestStoragePermission();
+    if (!granted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Storage permission is required.")),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
